@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotizá tu producción de barras de cereal — Cereal Food S.A.</title>
+  <meta name="description" content="Pedí tu cotización para fabricar barras de cereal con tu marca. Contanos tu proyecto y te preparamos una primera propuesta. Consulta confidencial y sin compromiso.">
+
+  <link rel="icon" href="assets/brand/monogram.svg" type="image/svg+xml">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-XXXXXXXXXX');
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <link rel="stylesheet" href="styles.css?v=20260918f">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container nav nav--center">
+      <div class="nav__menu">
+        <ul class="nav__side nav__side--left">
+          <li><a href="nosotros.html">Quiénes somos</a></li>
+          <li><a href="fabricacion.html">Producción</a></li>
+        </ul>
+        <ul class="nav__side nav__side--right">
+          <li><a href="cereanola.html">Nuestra marca</a></li>
+          <li><a href="cotizar.html" class="is-active">Contacto</a></li>
+        </ul>
+      </div>
+      <a class="nav__brand" href="index.html" aria-label="Cereal Food — inicio">
+        <img class="brand-wordmark" src="assets/brand/logotype-word.svg" alt="Cereal Food" width="150" height="17">
+      </a>
+      <button class="nav__toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <!-- FORMULARIO -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-intro reveal">
+        <h1>Hablemos de tu proyecto</h1>
+        <p>Contanos sobre tu marca y qué barra tenés en mente. Cada dato nos ayuda a preparar una primera propuesta más precisa. Consulta confidencial y sin compromiso.</p>
+      </div>
+
+      <div class="form-wrap reveal">
+        <form class="form-card" data-ajax data-form="cotizacion" action="https://formsubmit.co/ajax/info@cerealfood.com.ar" method="POST" novalidate>
+          <!-- FormSubmit: config y anti-spam -->
+          <input type="hidden" name="_subject" value="Nueva consulta desde la web — Cereal Food">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+          <div class="form-grid">
+            <div class="field"><label for="nombre">Nombre y apellido *</label><input id="nombre" name="nombre" type="text" required></div>
+            <div class="field"><label for="empresa">Empresa o marca</label><input id="empresa" name="empresa" type="text"></div>
+            <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required></div>
+            <div class="field"><label for="whatsapp">WhatsApp *</label><input id="whatsapp" name="whatsapp" type="tel" required></div>
+
+            <div class="field field--full">
+              <label for="etapa">¿En qué etapa estás? *</label>
+              <select id="etapa" name="etapa" required>
+                <option value="">Seleccioná…</option>
+                <option>Tengo una idea</option>
+                <option>Tengo marca y busco fabricante</option>
+                <option>Cambio de fabricante</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="producto">Tipo de producto buscado</label>
+              <select id="producto" name="producto">
+                <option value="">Seleccioná…</option>
+                <option>Clásica</option>
+                <option>Light</option>
+                <option>Natural</option>
+                <option>Con chocolate</option>
+                <option>Con frutas</option>
+                <option>Otro / a definir</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="formato">Formato deseado</label>
+              <select id="formato" name="formato">
+                <option value="">Seleccioná…</option>
+                <option>Flow pack individual</option>
+                <option>Multipack</option>
+                <option>Doypack</option>
+                <option>Caja</option>
+                <option>A definir</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="volumen">Volumen estimado mensual</label>
+              <select id="volumen" name="volumen">
+                <option value="">Seleccioná…</option>
+                <option>Menos de 5.000 unidades</option>
+                <option>5.000 – 20.000 unidades</option>
+                <option>20.000 – 50.000 unidades</option>
+                <option>Más de 50.000 unidades</option>
+                <option>No lo sé todavía</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="timing">Timing del proyecto</label>
+              <select id="timing" name="timing">
+                <option value="">Seleccioná…</option>
+                <option>Lo antes posible</option>
+                <option>En 1–3 meses</option>
+                <option>En 3–6 meses</option>
+                <option>Solo estoy explorando</option>
+              </select>
+            </div>
+
+            <div class="field field--full">
+              <label for="mensaje">Mensaje (opcional)</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Contanos cualquier detalle relevante de tu proyecto…"></textarea>
+            </div>
+
+            <div class="field--full">
+              <button type="submit" class="btn btn--primary btn--lg btn--block">Enviar consulta</button>
+              <p class="form-note">* Campos obligatorios. Al enviar aceptás que te contactemos por esta consulta.</p>
+              <p class="form-error" role="alert">No pudimos enviar tu consulta. Probá de nuevo o escribinos a <a href="mailto:info@cerealfood.com.ar">info@cerealfood.com.ar</a>.</p>
+            </div>
+          </div>
+          <div class="form-success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ¡Gracias! Recibimos tu consulta. Te contactamos a la brevedad.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO DIRECTO + MAPA -->
+  <section class="section section--panel">
+    <div class="container">
+      <div class="contact-direct">
+        <div class="contact-direct__info">
+          <h2>Contacto directo</h2>
+          <div class="contact-list">
+            <div class="contact-list__row">
+              <span class="k">Email</span>
+              <a href="mailto:info@cerealfood.com.ar">info@cerealfood.com.ar</a>
+            </div>
+            <div class="contact-list__row">
+              <span class="k">Teléfono</span>
+              <a href="tel:+541146041757">+54 11 4604-1757</a>
+            </div>
+            <div class="contact-list__row">
+              <span class="k">WhatsApp</span>
+              <a href="https://wa.me/5491123519570" target="_blank" rel="noopener">+54 9 11 2351-9570</a>
+            </div>
+            <div class="contact-list__row">
+              <span class="k">Dirección</span>
+              <a href="https://maps.app.goo.gl/j3PW9BXLEPqj2FNh7" target="_blank" rel="noopener">Berón de Astrada 6730, CABA</a>
+            </div>
+            <div class="contact-list__row">
+              <span class="k">Horario de atención</span>
+              <span class="v">Lunes a viernes, de 8 a 17 h</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps?q=Ber%C3%B3n+de+Astrada+6730,+CABA&z=16&output=embed"
+            title="Ubicación de la planta de Cereal Food — Berón de Astrada 6730, CABA"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <img class="brand-wordmark brand-wordmark--light" src="assets/brand/logotype.svg" alt="Cereal Food S.A." width="146" height="28">
+          </div>
+          <p>Fabricante de barras de cereal para tu marca, con más de 25 años de trayectoria. Desarrollo de receta, producción y envasado bajo un mismo techo.</p>
+        </div>
+        <div class="footer__col">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Quiénes somos</a></li>
+            <li><a href="fabricacion.html">Producción</a></li>
+            <li><a href="cereanola.html">Nuestra marca</a></li>
+            <li><a href="cotizar.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:info@cerealfood.com.ar">info@cerealfood.com.ar</a></li>
+            <li><a href="tel:+541146041757">+54 11 4604-1757</a></li>
+            <li><a href="https://wa.me/5491123519570" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://maps.app.goo.gl/j3PW9BXLEPqj2FNh7" target="_blank" rel="noopener">Berón de Astrada 6730, CABA</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">© <span data-year>2026</span> Cereal Food S.A. — Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/5491123519570?text=Hola%2C%20quiero%20cotizar%20la%20producci%C3%B3n%20de%20barras%20de%20cereal%20para%20mi%20marca" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.488-.915zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.017-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
+  <script defer src="main.js?v=20260918a"></script>
+</body>
+</html>
