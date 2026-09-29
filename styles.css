@@ -552,8 +552,8 @@ h3 { font-size: 1.22rem; }
   .page-hero::after { background: linear-gradient(180deg, rgba(245,245,242,.9), rgba(245,245,242,.96)); }
 }
 @media (max-width: 560px) {
-  .grid--4, .steps--4, .stats, .trust-strip .container, .photo-band, .trust-band, .footer__grid { grid-template-columns: 1fr; }
-  .grid--3 { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .steps--4, .stats, .trust-strip .container, .photo-band, .trust-band, .footer__grid { grid-template-columns: 1fr; }
+  .grid--3, .grid--4 { grid-template-columns: 1fr 1fr; gap: 14px; }
   .form-grid, .mini-form { grid-template-columns: 1fr; }
   .hero { min-height: auto; padding-top: 128px; padding-bottom: 80px; }
   .scroll-cue { display: none; }
