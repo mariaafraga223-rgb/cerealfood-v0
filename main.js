@@ -326,6 +326,22 @@
     });
   }
 
+  /* ---- Lightbox de la galería vintage ---- */
+  function initLightbox() {
+    const lb = $("[data-lightbox]");
+    const gallery = $("[data-vint]");
+    if (!lb || !gallery) return;
+    const img = $(".lightbox__img", lb);
+    const open = src => { img.src = src; lb.hidden = false; document.body.style.overflow = "hidden"; };
+    const close = () => { lb.hidden = true; img.removeAttribute("src"); document.body.style.overflow = ""; };
+    gallery.addEventListener("click", e => {
+      const btn = e.target.closest(".vint-item"); if (!btn) return;
+      const im = $("img", btn); if (im) open(im.currentSrc || im.src);
+    });
+    lb.addEventListener("click", close);
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !lb.hidden) close(); });
+  }
+
   function boot() {
     safe(initYear, "initYear");
     safe(initHeader, "initHeader");
@@ -342,6 +358,7 @@
     safe(initAjaxForms, "initAjaxForms");
     safe(initHeroVideo, "initHeroVideo");
     safe(initHeroSlider, "initHeroSlider");
+    safe(initLightbox, "initLightbox");
     safe(initFontRepaint, "initFontRepaint");
     document.documentElement.classList.add("is-ready");
   }
