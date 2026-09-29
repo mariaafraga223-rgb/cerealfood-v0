@@ -923,7 +923,7 @@ h3 { font-size: 1.22rem; }
 }
 
 /* Qué fabricamos — flip cards (imagen + título / dorso con desc) */
-.prodcards { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.4vw, 20px); }
+.prodcards { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(12px, 1.4vw, 20px); }
 .flipcard { perspective: 1400px; aspect-ratio: 3/4; border: 0; padding: 0; background: none; cursor: pointer; text-align: left; }
 .flipcard__inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .6s var(--ease-out); }
 .flipcard:hover .flipcard__inner,
