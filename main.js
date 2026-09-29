@@ -326,20 +326,69 @@
     });
   }
 
-  /* ---- Lightbox de la galería vintage ---- */
-  function initLightbox() {
+  /* ---- Galería vintage: scroll infinito + flechas + lightbox ---- */
+  function initVintGallery() {
+    const vp = $("[data-vint]");
+    if (!vp) return;
+    const track = $(".vint-track", vp);
+    const wrap = vp.closest(".vintwrap");
     const lb = $("[data-lightbox]");
-    const gallery = $("[data-vint]");
-    if (!lb || !gallery) return;
-    const img = $(".lightbox__img", lb);
-    const open = src => { img.src = src; lb.hidden = false; document.body.style.overflow = "hidden"; };
-    const close = () => { lb.hidden = true; img.removeAttribute("src"); document.body.style.overflow = ""; };
-    gallery.addEventListener("click", e => {
-      const btn = e.target.closest(".vint-item"); if (!btn) return;
-      const im = $("img", btn); if (im) open(im.currentSrc || im.src);
-    });
-    lb.addEventListener("click", close);
-    document.addEventListener("keydown", e => { if (e.key === "Escape" && !lb.hidden) close(); });
+
+    // Loop infinito: la segunda mitad del track es una copia de la primera
+    let half = 0;
+    const measure = () => { half = track.scrollWidth / 2; };
+    const normalize = () => {
+      if (half <= 0) return;
+      if (vp.scrollLeft >= half) vp.scrollLeft -= half;
+      else if (vp.scrollLeft < 0) vp.scrollLeft += half;
+    };
+    $$(".vint-item img", vp).forEach(im => { im.loading = "eager"; if (!im.complete) im.addEventListener("load", measure, { once: true }); });
+    measure();
+    window.addEventListener("load", measure);
+    window.addEventListener("resize", measure);
+
+    const speed = 0.5;
+    let auto = !reduced, hovering = false, lbOpen = false, tween = false;
+    (function frame() {
+      if (auto && half > 0 && !hovering && !lbOpen && !tween) { vp.scrollLeft += speed; normalize(); }
+      requestAnimationFrame(frame);
+    })();
+    vp.addEventListener("mouseenter", () => hovering = true);
+    vp.addEventListener("mouseleave", () => hovering = false);
+
+    // Flechas: avanzar / retroceder con animación suave
+    function nudge(dir) {
+      if (tween) return;
+      const step = Math.min(vp.clientWidth * 0.7, 360);
+      if (dir < 0 && vp.scrollLeft < step) vp.scrollLeft += half;
+      else if (dir > 0 && vp.scrollLeft > half) vp.scrollLeft -= half;
+      const start = vp.scrollLeft, target = start + dir * step, t0 = performance.now(), dur = 420;
+      tween = true;
+      (function anim(now) {
+        const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        vp.scrollLeft = start + (target - start) * e;
+        if (p < 1) requestAnimationFrame(anim);
+        else { tween = false; normalize(); }
+      })(performance.now());
+    }
+    if (wrap) {
+      const prev = $(".vint-nav--prev", wrap), next = $(".vint-nav--next", wrap);
+      if (prev) prev.addEventListener("click", () => nudge(-1));
+      if (next) next.addEventListener("click", () => nudge(1));
+    }
+
+    // Lightbox al hacer click
+    if (lb) {
+      const img = $(".lightbox__img", lb);
+      const open = src => { img.src = src; lb.hidden = false; lbOpen = true; document.body.style.overflow = "hidden"; };
+      const close = () => { lb.hidden = true; img.removeAttribute("src"); lbOpen = false; document.body.style.overflow = ""; };
+      vp.addEventListener("click", e => {
+        const btn = e.target.closest(".vint-item"); if (!btn) return;
+        const im = $("img", btn); if (im) open(im.currentSrc || im.src);
+      });
+      lb.addEventListener("click", close);
+      document.addEventListener("keydown", e => { if (e.key === "Escape" && !lb.hidden) close(); });
+    }
   }
 
   function boot() {
@@ -358,7 +407,7 @@
     safe(initAjaxForms, "initAjaxForms");
     safe(initHeroVideo, "initHeroVideo");
     safe(initHeroSlider, "initHeroSlider");
-    safe(initLightbox, "initLightbox");
+    safe(initVintGallery, "initVintGallery");
     safe(initFontRepaint, "initFontRepaint");
     document.documentElement.classList.add("is-ready");
   }

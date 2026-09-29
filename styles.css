@@ -989,17 +989,25 @@ h3 { font-size: 1.22rem; }
   .hero__mesh { animation: none; }
   .scroll-cue::after { animation: none; }
   .marquee__track { animation: none; justify-content: center; flex-wrap: wrap; width: 100%; }
-  .marquee--vint .vint-item[aria-hidden="true"] { display: none; }
 }
 
+/* Hero-slider con navegación: título abajo, cerca de los puntos */
+.hero-slider[data-slider] { align-items: flex-end; }
+.hero-slider[data-slider] .hero-video__inner { margin-bottom: clamp(64px, 11vh, 128px); }
+
 /* =============================================================
-   27. Galería vintage (marquee + lightbox)
+   27. Galería vintage (scroll infinito + nav + lightbox)
    ============================================================= */
-.vintwrap { padding-block: clamp(30px, 4.5vw, 56px); overflow: hidden; }
-.marquee--vint .marquee__track { animation-duration: 90s; gap: clamp(10px, 1.4vw, 18px); }
-.vint-item { flex: none; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--radio); overflow: hidden; line-height: 0; }
-.vint-item img { height: clamp(140px, 18vw, 220px); width: auto; display: block; object-fit: cover; filter: saturate(.96); transition: transform .5s var(--ease-out); }
-.vint-item:hover img { transform: scale(1.04); }
+.vintwrap { position: relative; padding-block: clamp(30px, 4.5vw, 56px); }
+.vint-viewport { overflow: hidden; width: 100%; }
+.vint-track { display: flex; width: max-content; }
+.vint-item { flex: none; padding: 0; border: 0; background: none; cursor: zoom-in; line-height: 0; display: block; }
+.vint-item img { height: clamp(140px, 18vw, 220px); width: auto; display: block; object-fit: cover; }
+.vint-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 4; width: 46px; height: 46px; border: 0; border-radius: 50%; background: rgba(245,245,242,.82); color: var(--ink); cursor: pointer; display: grid; place-items: center; box-shadow: var(--sombra-soft); transition: background .2s; }
+.vint-nav:hover { background: #fff; }
+.vint-nav svg { width: 20px; height: 20px; }
+.vint-nav--prev { left: clamp(8px, 1.5vw, 20px); }
+.vint-nav--next { right: clamp(8px, 1.5vw, 20px); }
 
 .lightbox { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 5vw; background: rgba(14,10,10,.9); cursor: zoom-out; animation: fadeIn .25s ease; }
 .lightbox[hidden] { display: none; }
