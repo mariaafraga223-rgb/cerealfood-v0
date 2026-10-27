@@ -49,24 +49,10 @@ Todas las páginas tienen el código de Google con **IDs de ejemplo**
 
 ---
 
-## 4. Fuentes tipográficas (Season) → licencia
-
-El sitio usa la familia **Season** (Displaay) en versión **trial**. Antes de un
-lanzamiento comercial hay que **licenciarla** (los archivos ya están en `assets/fonts/`).
-
----
-
-## 5. Catálogo descargable (PDF) — opcional
+## 4. Catálogo descargable (PDF) — opcional
 
 En la home (`index.html`) el botón **"Descargá el catálogo"** apunta a `#`.
 Cuando exista el PDF, subirlo a `assets/` y poner su ruta en el `href`.
-
----
-
-## 6. "Dónde se consigue Cereanola" — opcional, a confirmar
-
-Se dejó afuera la sección de puntos de venta por falta de datos. Si el cliente
-confirma en qué cadenas/comercios se vende, se puede reponer como prueba de góndola.
 
 ---
 
