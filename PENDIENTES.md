@@ -1,8 +1,8 @@
-# Cereal Food — Web · Pendientes para activar
+# Cereal Food — Web · Pendientes para el lanzamiento
 
-Lista de cosas que **el cliente debe completar o confirmar** para que el sitio quede
-100% funcional en producción. Ninguna es urgente para ver el diseño; son datos y
-activaciones que solo el cliente puede proveer.
+Guía para quien sube el sitio a producción (hosting + dominio). El diseño y el
+contenido están completos; lo que sigue son **datos y activaciones** que hay que
+configurar para que todo funcione al 100%.
 
 ---
 
@@ -15,58 +15,65 @@ El formulario de **Contacto** (`cotizar.html`) envía las consultas a
 1. La **primera vez** que alguien envíe el formulario, FormSubmit manda un mail de
    activación a `info@cerealfood.com.ar` (asunto tipo *"Confirm your email"*).
 2. Abrir ese mail y hacer clic en **"Activate Form"**.
-3. Listo: desde ese momento todas las consultas llegan a esa casilla.
+3. Desde ese momento todas las consultas llegan a esa casilla.
 
-> Hasta que no se haga ese clic, **los envíos NO llegan**. Es gratis y se hace una sola vez.
+> Hasta que no se haga ese clic, **los envíos NO llegan**. Es gratis, una sola vez.
 
-**Opcional (recomendado):** para no exponer el mail a robots de spam, FormSubmit da un
-**alias aleatorio** (ej. `https://formsubmit.co/ajax/a1b2c3d4…`). Si lo querés usar,
-pasámelo y lo reemplazo en el `action` del formulario.
-
-- Archivo: `cotizar.html` (línea del `<form ... action="https://formsubmit.co/ajax/info@cerealfood.com.ar">`)
+- Dónde está: `cotizar.html`, en `<form ... action="https://formsubmit.co/ajax/info@cerealfood.com.ar">`.
 - Para cambiar la casilla de destino: editar ese mail en el `action`.
+- (Opcional, anti-spam) FormSubmit da un **alias aleatorio** para no exponer el mail;
+  se puede reemplazar en el `action`.
 
 ---
 
-## 2. Google Ads + Google Analytics → IDs reales
+## 2. Casillas de mail dedicadas → crearlas
 
-Todas las páginas tienen el código de seguimiento de Google con **IDs de ejemplo**
+El sitio ya enlaza (con `mailto:`) tres direcciones. Hay que **crear los buzones**
+que todavía no existan para no perder consultas:
+
+- `info@cerealfood.com.ar` — general / formulario (ya existe).
+- `equipo@cerealfood.com.ar` — CV / "Súmate al equipo" (en `nosotros.html`).
+- `cereanola@cerealfood.com.ar` — venta de Cereanola (en `cereanola.html`).
+
+---
+
+## 3. Google Ads + Google Analytics → IDs reales
+
+Todas las páginas tienen el código de Google con **IDs de ejemplo**
 (`AW-XXXXXXXXXX` y `G-XXXXXXXXXX`). No trackean nada hasta reemplazarlos.
 
-**Qué hace falta del cliente:**
-- ID de **Google Ads** (`AW-XXXXXXXXXX`)
-- ID de **Google Analytics 4** (`G-XXXXXXXXXX`)
-- (Opcional) La **etiqueta de conversión** de Google Ads para el evento del formulario.
-
-**Dónde reemplazar:** en el `<head>` de las **5 páginas**
-(`index.html`, `nosotros.html`, `fabricacion.html`, `cereanola.html`, `cotizar.html`)
-y la etiqueta de conversión en `main.js` (función `initAjaxForms`, comentario `send_to`).
+- Reemplazar en el `<head>` de las **5 páginas** (`index`, `nosotros`,
+  `fabricacion`, `cereanola`, `cotizar`).
+- (Opcional) Etiqueta de conversión de Google Ads para el evento del formulario:
+  `main.js`, función `initAjaxForms` (comentario `send_to`).
 
 ---
 
-## 3. Imágenes pendientes
+## 4. Fuentes tipográficas (Season) → licencia
 
-| Dónde | Qué falta |
-|---|---|
-| **Quiénes somos** (`nosotros.html`) — hero | 6 **fotos históricas** de los comienzos (hoy hay placeholders). Reemplazar cada `<div class="img-ph--slide">` por `<img src="…" alt="…">`. |
-| **Nuestra marca** (`cereanola.html`) — 6 variantes | **Packshots** de cada sabor tras la sesión de fotos de producto. Reemplazar cada `<div class="variant__img img-ph">`. |
+El sitio usa la familia **Season** (Displaay) en versión **trial**. Antes de un
+lanzamiento comercial hay que **licenciarla** (los archivos ya están en `assets/fonts/`).
 
 ---
 
-## 4. Catálogo descargable (PDF)
+## 5. Catálogo descargable (PDF) — opcional
 
 En la home (`index.html`) el botón **"Descargá el catálogo"** apunta a `#`.
 Cuando exista el PDF, subirlo a `assets/` y poner su ruta en el `href`.
 
 ---
 
-## 5. (A confirmar) "Dónde se consigue Cereanola"
+## 6. "Dónde se consigue Cereanola" — opcional, a confirmar
 
-Se sacó la sección de puntos de venta por falta de datos. Si el cliente confirma
-**en qué cadenas/comercios se vende hoy**, se puede reponer como prueba de que la
-marca está en góndola. Si no hay data concreta, mejor dejarla afuera.
+Se dejó afuera la sección de puntos de venta por falta de datos. Si el cliente
+confirma en qué cadenas/comercios se vende, se puede reponer como prueba de góndola.
 
 ---
+
+### Notas de hosting
+- El **`.htaccess`** incluido es para servidores **Apache** (hosting compartido tipo
+  cPanel). En Nginx habría que trasladar esa configuración.
+- Subir **todo el contenido del zip a la raíz del dominio** (el `index.html` va en el root).
 
 ### Datos de contacto usados en el sitio (verificar que sean correctos)
 - Email: `info@cerealfood.com.ar`
@@ -74,3 +81,11 @@ marca está en góndola. Si no hay data concreta, mejor dejarla afuera.
 - WhatsApp: `+54 9 11 2351-9570`
 - Dirección: Berón de Astrada 6730, CABA
 - Horario: lunes a viernes, de 8 a 17 h
+
+---
+
+### Ya resuelto (referencia)
+- Hero de "Quiénes somos" con las fotos históricas reales + galería vintage con lightbox.
+- Cereanola: 8 variantes con los packshots finales de cada envoltorio.
+- Favicon adaptativo (negro en claro / blanco en oscuro).
+- Formulario cableado a FormSubmit; footer con WhatsApp, teléfono y mapa.
